@@ -65,7 +65,7 @@ export function Hero() {
             />
             <Button
               label="Nous contacter"
-              variant="secondary"
+              variant="secondaryBeige"
               size="lg"
               icon="phone-call"
               style={styles.secondaryBtn}

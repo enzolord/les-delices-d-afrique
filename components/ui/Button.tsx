@@ -3,7 +3,7 @@ import { Pressable, Text, StyleSheet, ViewStyle, StyleProp, ActivityIndicator } 
 import { Feather } from '@expo/vector-icons';
 import { colors, fonts, radii, spacing } from '@/constants/theme';
 
-type Variant = 'primary' | 'secondary' | 'dark' | 'whatsapp' | 'ghost';
+type Variant = 'primary' | 'secondary' | 'dark' | 'whatsapp' | 'ghost'|'secondaryBeige';
 type Size = 'md' | 'lg';
 
 interface ButtonProps {
@@ -21,7 +21,8 @@ interface ButtonProps {
 
 const VARIANT_STYLES: Record<Variant, { bg: string; border?: string; text: string; pressedBg: string }> = {
   primary: { bg: colors.gold, text: colors.charcoal, pressedBg: colors.goldDeep },
-  secondary: { bg: 'transparent', border: colors.charcoal, text: "#F5F5DC", pressedBg: 'rgba(24,20,16,0.06)' },
+  secondary: { bg: 'transparent', border: colors.charcoal, text: colors.charcoal, pressedBg: 'rgba(24,20,16,0.06)' },
+  secondaryBeige: { bg: 'transparent', border: colors.charcoal, text: '#F5F5DC', pressedBg: 'rgba(24,20,16,0.06)' },
   dark: { bg: colors.charcoal, text: colors.textOnDark, pressedBg: colors.charcoalSoft },
   whatsapp: { bg: colors.success, text: colors.white, pressedBg: '#2F6E43' },
   ghost: { bg: 'transparent', text: colors.charcoal, pressedBg: 'rgba(24,20,16,0.06)' },
