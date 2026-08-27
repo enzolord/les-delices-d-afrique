@@ -1,11 +1,6 @@
 /**
  * Informations générales du restaurant.
- * -------------------------------------------------
- * ⚠️ IMPORTANT — cahier des charges §33-36 : le développeur ne doit pas
- * inventer d'informations officielles. Tous les champs marqués
- * "À CONFIRMER" sont des placeholders à remplacer par les données
- * validées, collectées par le Community Manager auprès du client.
- * Ne rien publier en production avant validation de cette fiche.
+ 
  */
 
 export const restaurant = {
@@ -15,7 +10,7 @@ export const restaurant = {
     'Découvrez une cuisine de qualité dans un cadre confortable et chaleureux, au cœur de Douala.',
   positioning: 'Haut standing à prix abordable',
 
-  // À CONFIRMER — adresse exacte fournie par le client (CdC §35)
+  // adresse 
   addressLine: 'Bonadibong en face le MIRADOR, Douala — Cameroun',
   addressDetail: 'Adresse précise à confirmer par le Community Manager',
   city: 'Douala',
@@ -23,7 +18,7 @@ export const restaurant = {
   country: 'Cameroun',
   description: 'RESTAURANT SENEGALAIS',
 
-  // À CONFIRMER — coordonnées GPS exactes (CdC §35)
+  //coordonnées GPS 
   geo: {
     latitude: 4.0483,
     longitude: 9.7043,
@@ -33,9 +28,9 @@ export const restaurant = {
   // et/ou le lien Google Business Profile ne sont pas fournis.
   mapsQuery: "Les Délices d'Afrique, Bonadibong, Douala, Cameroun",
 
-  // À CONFIRMER — numéros officiels du restaurant
-  phoneDisplay: '+237 6XX XXX XXX',
-  whatsappNumber: '+237 6XX XXX XXX',
+  // numéros officiels du restaurant
+  phoneDisplay: '+237 691 240 353',
+  whatsappNumber: '+237 691 240 353',
   email: 'contact@lesdelicesdafrique.online',
 
   hours: {
@@ -46,11 +41,11 @@ export const restaurant = {
   },
 
   social: {
-    // À CONFIRMER — liens réels une fois les comptes créés/collectés
+    // liens reseaux sociaux
     facebook: 'https://www.facebook.com/lesdelicesdafriquedouala',
     instagram: 'https://www.instagram.com/lesdelicesdafriquedouala',
     tiktok: 'www.tiktok.com/@lesdelicesdafriquedouala',
-    googleBusiness: '', // Fiche à créer — CdC §21
+    googleBusiness: '', // Fiche à créer 
   },
 
   whyChooseUs: [
@@ -76,7 +71,7 @@ export const restaurant = {
 
   about: {
     title: "L'histoire de la maison",
-    // Contenu provisoire — à valider par le client (CdC §14)
+
     paragraphs: [
       "Les Délices d'Afrique est né d'une conviction simple : la grande cuisine camerounaise mérite un cadre à sa hauteur, sans jamais devenir inaccessible.",
       "Ici, chaque plat est préparé avec des produits choisis avec soin, dans le respect des recettes qui font la richesse de la table africaine.",

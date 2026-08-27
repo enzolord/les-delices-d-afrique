@@ -11,7 +11,7 @@
     "primaryColor": "#C9A227",
     "backgroundColor": "#F8F2E4",
     "description": "Restaurant Les Délices d'Afrique à Douala (Bonadibong) — cuisine camerounaise haut standing à prix abordable. Repas sur place, livraison à domicile, traiteur mariages, anniversaires, baptêmes.",
-    "githubUrl": "https://github.com/kn-web-technology/les-delices-dafrique",
+    "githubUrl": "https://github.com/KN-WEB-TECHNOLOGY/LDA",
     "ios": {
       "supportsTablet": true,
       "bundleIdentifier": "com.knwebtechnology.lesdelicesdafrique"
@@ -30,7 +30,7 @@
       "bundler": "metro",
       "output": "static",
       "favicon": "./assets/images/favicon.png",
-      "name": "Les Délices d'Afrique | Restaurant Douala, Akwa",
+      "name": "Les Délices d'Afrique | Restaurant Douala, Bonadibong en face le MIRADOR",
       "shortName": "Délices d'Afrique",
       "lang": "fr",
       "themeColor": "#C9A227",
