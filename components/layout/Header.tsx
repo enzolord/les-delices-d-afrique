@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Modal } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Modal, Image } from 'react-native';
 import { Link, usePathname } from 'expo-router';
 import { Feather } from '@expo/vector-icons';
 import { colors, fonts, spacing, radii } from '@/constants/theme';
@@ -29,9 +29,12 @@ export function Header() {
       <Container style={styles.row}>
         <Link href="/" style={styles.logoLink} accessibilityLabel="Les Délices d'Afrique — Accueil">
           <View style={styles.logoRow}>
-            <View style={styles.logoMark}>
-              <Text style={styles.logoMarkText}>LDA</Text>
-            </View>
+            <Image
+              source={require('../../assets/adaptive-icon.png')}
+              style={styles.logoImage}
+              resizeMode="contain"
+              accessibilityLabel={`${restaurant.name} — logo`}
+            />
             <View>
               <Text style={styles.logoTitle}>{restaurant.name}</Text>
               <Text style={styles.logoSubtitle}>{restaurant.description}</Text>
@@ -131,22 +134,14 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingVertical: spacing.sm,
+    paddingVertical: spacing.xxs,
   },
   logoLink: { textDecorationLine: 'none' },
-  logoRow: { flexDirection: 'row', alignItems: 'center', gap: 10 },
-  logoMark: {
-    width: 40,
-    height: 40,
-    borderRadius: radii.sm,
-    backgroundColor: colors.charcoal,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logoMarkText: {
-    fontFamily: fonts.display,
-    color: colors.gold,
-    fontSize: 15,
+  logoRow: { flexDirection: 'row', alignItems: 'center', gap: 3 ,  position: 'relative',
+  left: -20},
+  logoImage: {
+    width: 90,
+    height: 90,
   },
   logoTitle: {
     fontFamily: fonts.display,

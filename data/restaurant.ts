@@ -20,8 +20,8 @@ export const restaurant = {
 
   //coordonnées GPS 
   geo: {
-    latitude: 4.0483,
-    longitude: 9.7043,
+    latitude: 4.0431306,
+    longitude:  9.6963773,
   },
 
   // Requête utilisée pour Google Maps tant que l'adresse précise
@@ -44,8 +44,8 @@ export const restaurant = {
     // liens reseaux sociaux
     facebook: 'https://www.facebook.com/lesdelicesdafriquedouala',
     instagram: 'https://www.instagram.com/lesdelicesdafriquedouala',
-    tiktok: 'www.tiktok.com/@lesdelicesdafriquedouala',
-    googleBusiness: '', // Fiche à créer 
+    tiktok: 'https://www.tiktok.com/@lesdelicesdafriquedouala',
+    googleBusiness: 'https://maps.app.goo.gl/YZskHtiANoQdtKe66?g_st=ic',
   },
 
   whyChooseUs: [
