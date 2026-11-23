@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Pressable } from 'react-native';
 import { Link } from 'expo-router';
-import { Feather } from '@expo/vector-icons';
+import Feather from '@expo/vector-icons/Feather';
 import { colors, fonts, spacing } from '@/constants/theme';
 import { useResponsive } from '@/utils/useResponsive';
 import { restaurant } from '@/data/restaurant';

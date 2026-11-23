@@ -1,6 +1,8 @@
 import React from 'react';
 import { PageShell } from '@/components/layout/PageShell';
+import Head from 'expo-router/head';
 import { PageHead } from '@/components/seo/PageHead';
+import { restaurantImageUri } from '@/utils/images';
 import { routesSeo } from '@/data/seo';
 import { Hero } from '@/components/home/Hero';
 import { WhyChooseUs } from '@/components/home/WhyChooseUs';
@@ -15,6 +17,10 @@ export default function HomeScreen() {
   return (
     <PageShell>
       <PageHead seo={routesSeo.home} />
+      <Head>
+        {/* Photo principale (LCP) : téléchargée en priorité, avant le JavaScript */}
+        <link rel="preload" as="image" href={restaurantImageUri('hero')} fetchPriority="high" />
+      </Head>
       <Hero />
       <WhyChooseUs />
       <FeaturedDishes />

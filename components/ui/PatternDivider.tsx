@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
-import Svg, { Polyline } from 'react-native-svg';
+import { Svg, Polyline } from '@/components/ui/svg';
 import { colors } from '@/constants/theme';
 
 interface PatternDividerProps {

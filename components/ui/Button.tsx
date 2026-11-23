@@ -1,6 +1,6 @@
 import React from 'react';
 import { Pressable, Text, StyleSheet, ViewStyle, StyleProp, ActivityIndicator } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import Feather from '@expo/vector-icons/Feather';
 import { colors, fonts, radii, spacing } from '@/constants/theme';
 
 type Variant = 'primary' | 'secondary' | 'dark' | 'whatsapp' | 'ghost'|'secondaryBeige';

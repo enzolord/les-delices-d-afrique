@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { router } from 'expo-router';
-import { Feather } from '@expo/vector-icons';
+import Feather from '@expo/vector-icons/Feather';
 import { colors, fonts, radii, shadow, spacing } from '@/constants/theme';
 import { Service } from '@/data/services';
 import { serviceImageUri } from '@/utils/images';

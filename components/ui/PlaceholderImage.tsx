@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, StyleProp, ViewStyle, Image } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { View, Text, StyleSheet, StyleProp, ViewStyle } from 'react-native';
+import Feather from '@expo/vector-icons/Feather';
+import { OptimizedImage, imageExists } from '@/components/ui/OptimizedImage';
 import { colors, fonts, radii } from '@/constants/theme';
 
 interface PlaceholderImageProps {
@@ -12,6 +13,8 @@ interface PlaceholderImageProps {
   compact?: boolean;
   /** URL de la vraie photo (ex. via utils/images.ts). Si absente ou introuvable, le bloc placeholder s'affiche à la place. */
   uri?: string;
+  /** Photo visible dès l'ouverture de la page : chargée en priorité (pas de lazy-loading). */
+  priority?: boolean;
 }
 
 /**
@@ -31,9 +34,12 @@ export function PlaceholderImage({
   rounded = true,
   compact,
   uri,
+  priority,
 }: PlaceholderImageProps) {
   const [failed, setFailed] = useState(false);
-  const showImage = Boolean(uri) && !failed;
+  // On ne demande au serveur que les photos qui existent vraiment
+  // (manifeste généré au build) → aucune requête 404 inutile.
+  const showImage = imageExists(uri) && !failed;
 
   return (
     <View
@@ -44,13 +50,7 @@ export function PlaceholderImage({
       ]}
     >
       {showImage ? (
-        <Image
-          source={{ uri }}
-          style={StyleSheet.absoluteFill as any}
-          resizeMode="cover"
-          onError={() => setFailed(true)}
-          accessibilityLabel={label}
-        />
+        <OptimizedImage uri={uri} alt={label} priority={priority} onError={() => setFailed(true)} />
       ) : (
         <View style={styles.inner}>
           <Feather name={icon} size={compact ? 18 : 26} color={colors.goldLight} />
