@@ -17,8 +17,16 @@ export default function Root({ children }: { children: React.ReactNode }) {
         <meta name="robots" content="index, follow" />
         <meta name="author" content="KN WEB & TECHNOLOGY" />
 
-        {/* Préconnexion aux polices Google pour améliorer le LCP (CdC §26) */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/*
+          Performance (CdC §26) : les polices sont servies depuis le site
+          (public/fonts, .woff2 allégés ~15 Ko chacun) et déclarées ici, dans le
+          HTML statique. Le texte s'affiche immédiatement (font-display: swap)
+          au lieu d'attendre le chargement de tout le JavaScript.
+          On précharge les 2 polices visibles au-dessus de la ligne de flottaison.
+        */}
+        <link rel="preload" href="/fonts/Manrope_400Regular.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="preload" href="/fonts/Fraunces_600SemiBold.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <style dangerouslySetInnerHTML={{ __html: fontFaces }} />
 
         {/*
           Reset du fond blanc par défaut de react-native-web sur le
@@ -32,6 +40,21 @@ export default function Root({ children }: { children: React.ReactNode }) {
     </html>
   );
 }
+
+const FONT_FILES = [
+  'Fraunces_500Medium_Italic',
+  'Fraunces_600SemiBold',
+  'Fraunces_700Bold',
+  'Manrope_400Regular',
+  'Manrope_500Medium',
+  'Manrope_600SemiBold',
+  'Manrope_700Bold',
+];
+
+const fontFaces = FONT_FILES.map(
+  (name) =>
+    `@font-face{font-family:"${name}";src:url("/fonts/${name}.woff2") format("woff2");font-display:swap}`,
+).join('');
 
 const responsiveBackground = `
   html, body, #root { background-color: #FBF6EC; }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, TextInput, Pressable, StyleSheet } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import Feather from '@expo/vector-icons/Feather';
 import { colors, fonts, radii, spacing } from '@/constants/theme';
 import { CartItem, useCart } from '@/context/CartContext';
 import { formatPriceFCFA } from '@/data/menu';

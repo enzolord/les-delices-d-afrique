@@ -37,3 +37,10 @@ de toutes les fournir : commencez par les plats "Populaire" et "Spécial week-en
 - Format : .webp (obligatoire — voir utils/images.ts)
 - Poids : idéalement < 200 Ko par photo
 - Cadrage : privilégier le format portrait/carré pour les plats, paysage pour la salle
+
+## Optimisation automatique (depuis novembre 2026)
+Vous n'avez plus besoin de redimensionner vos photos : à chaque build
+(`npm run build:web` ou déploiement Vercel), `scripts/optimize-images.mjs`
+les redimensionne à la bonne taille, les recompresse en .webp (les .jpg/.png
+sont convertis) et met à jour `utils/imageManifest.ts`.
+Pour voir une nouvelle photo en local : `npm run optimize:images`.

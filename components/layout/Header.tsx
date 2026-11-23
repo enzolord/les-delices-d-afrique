@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Pressable, Modal, Image } from 'react-native';
+import { View, Text, StyleSheet, Pressable, Modal, Image, Platform } from 'react-native';
 import { Link, usePathname } from 'expo-router';
-import { Feather } from '@expo/vector-icons';
+import Feather from '@expo/vector-icons/Feather';
 import { colors, fonts, spacing, radii } from '@/constants/theme';
 import { useResponsive } from '@/utils/useResponsive';
 import { restaurant } from '@/data/restaurant';
@@ -29,12 +29,24 @@ export function Header() {
       <Container style={styles.row}>
         <Link href="/" style={styles.logoLink} accessibilityLabel="Les Délices d'Afrique — Accueil">
           <View style={styles.logoRow}>
-            <Image
-              source={require('../../assets/adaptive-icon.png')}
-              style={styles.logoImage}
-              resizeMode="contain"
-              accessibilityLabel={`${restaurant.name} — logo`}
-            />
+            {Platform.OS === 'web' ? (
+              // <img> natif : le logo apparaît dès le HTML statique, sans attendre le JS.
+              React.createElement('img', {
+                src: '/logo.webp',
+                alt: `${restaurant.name} — logo`,
+                width: 90,
+                height: 90,
+                fetchPriority: 'high',
+                style: { width: 90, height: 90, objectFit: 'contain', display: 'block' },
+              })
+            ) : (
+              <Image
+                source={require('../../assets/logo.webp')}
+                style={styles.logoImage}
+                resizeMode="contain"
+                accessibilityLabel={`${restaurant.name} — logo`}
+              />
+            )}
             <View>
               <Text style={styles.logoTitle}>{restaurant.name}</Text>
               <Text style={styles.logoSubtitle}>{restaurant.description}</Text>

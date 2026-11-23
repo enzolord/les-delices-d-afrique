@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
-import { Feather } from '@expo/vector-icons';
+import { View, Text, StyleSheet } from 'react-native';
+import Feather from '@expo/vector-icons/Feather';
 import { colors, fonts, spacing, type } from '@/constants/theme';
 import { useResponsive } from '@/utils/useResponsive';
 import { restaurant } from '@/data/restaurant';
 import { buildWhatsAppLink, whatsappOrderMessage } from '@/utils/contact';
 import { restaurantImageUri } from '@/utils/images';
 import { Button } from '@/components/ui/Button';
+import { OptimizedImage, imageExists } from '@/components/ui/OptimizedImage';
 import { Container } from '@/components/ui/Container';
 import { PatternDivider } from '@/components/ui/PatternDivider';
 import { router } from 'expo-router';
@@ -21,19 +22,19 @@ const TRUST_ITEMS: { icon: keyof typeof Feather.glyphMap; label: string }[] = [
 export function Hero() {
   const { isDesktop, isTablet } = useResponsive();
   const [bgFailed, setBgFailed] = useState(false);
+  const heroUri = restaurantImageUri('hero');
 
   return (
     <View style={styles.wrap}>
       {/* Photo en arrière-plan plein cadre. Si le fichier n'existe pas encore
           (voir public/images/restaurant/hero.webp), on retombe simplement sur
           le fond charcoal uni — jamais d'image cassée. */}
-      {!bgFailed && (
-        <Image
-          source={{ uri: restaurantImageUri('hero') }}
-          style={StyleSheet.absoluteFill as any}
-          resizeMode="cover"
+      {imageExists(heroUri) && !bgFailed && (
+        <OptimizedImage
+          uri={heroUri}
+          alt="Photo signature du restaurant"
+          priority
           onError={() => setBgFailed(true)}
-          accessibilityLabel="Photo signature du restaurant"
         />
       )}
       {/* Voile sombre pour garantir la lisibilité du texte quelle que soit la photo */}

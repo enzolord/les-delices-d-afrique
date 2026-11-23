@@ -12,7 +12,7 @@ import { Container } from '@/components/ui/Container';
 import { PlaceholderImage } from '@/components/ui/PlaceholderImage';
 import { PatternDivider } from '@/components/ui/PatternDivider';
 import { restaurantImageUri } from '@/utils/images';
-import { Feather } from '@expo/vector-icons';
+import Feather from '@expo/vector-icons/Feather';
 
 const ICONS: Record<string, keyof typeof Feather.glyphMap> = {
   sofa: 'home',
